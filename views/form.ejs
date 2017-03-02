@@ -1,0 +1,340 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="buttontoform.css">
+<link rel="stylesheet" type="text/css" href="home.css">
+<script src="jquery-1.8.3.js"></script>
+ <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">  </script>
+<script >
+var cc='';
+			function validateff(){
+				var firstname=document.getElementById("firstname").value.toString();
+				var lastname=document.getElementById("lastname").value.toString();
+				var uname=document.getElementById("username").value.toString();
+				var email=document.getElementById("mail").value.toString();
+				var phone=document.getElementById("number").value.toString();
+				var password=document.getElementById("password1").value.toString();
+				var namepat=/^[A-Za-z][a-z]+/;
+				var username=/^[A-Za-z][a-z0-9]+/;
+				var emailExp = /^[A-Za-z][A-Za-z0-9]+@[A-Za-z]+.[A-Za-z]+/;
+				var phonepat1=/^[1-9]{1}[0-9]{9}$/;
+				var phonepat2=/^\+[0-9][0-9][1-9]{1}[0-9]{9}$/;
+				var check="Please enter valid format of \n";
+				if(namepat.test(firstname)==false){
+					check+="first name \n";
+				}
+				if(namepat.test(lastname)==false){
+					check+="last name \n";
+				}
+				if(username.test(uname)==false){
+					check+="User name \n";
+				}
+				if(emailExp.test(email)==false){
+					check+="Email \n";
+				}
+				
+				if(phonepat1.test(phone)==false && phonepat2.test(phone)==false ){
+					check+="Phone no \n";
+				}
+				
+				if(check=="Please enter valid format of \n"){
+				cc="takeit";
+
+			}
+				else{
+				alert(check);
+				cc="ww";
+			}
+			}
+$(document).ready(function(){
+    $("#uu").focus(function(){
+        $("#uuu").css("font-size", "10px");
+    });
+    $("#uu").blur(function(){
+    	$("#uuu").css("font-size", "15px");});
+
+      $("#pp").focus(function(){
+        $("#ppp").css("font-size", "10px");
+    });
+    $("#pp").blur(function(){
+    	$("#ppp").css("font-size", "15px");});
+    $( "span#sign1" ).click(function() {
+  		$( "#dd" ).toggle( 1000 );
+
+   		$( "#si" ).toggle( 1000 );
+   		if ($(this).text() == "        		login") 
+  			{ 
+     			$(this).text("        		signup");
+  			} 
+  		else 
+  			{ 
+     			$(this).text("        		login"); 
+  			}; 
+	});
+	var user,pass;
+        $("#tesst").click(function(){
+          user=$("#uu").val();
+          pass=$("#pp").val();
+          $.post("http://localhost:3000/login",{user: user,password: pass}, function(data){
+          	if(data=="err")
+          		{alert("please enter valid password !");}
+          	else{
+                  window.location = data;}
+          	
+          });
+        });
+      	$('#xcc').click(function(){
+			validateff();
+			  var fname;
+    		var lname;
+    		var uname;
+    		var p;
+    		var e;
+    		var ph;
+
+    	if(cc=="takeit")
+    	{ fname=$("#firstname").val();
+          lname=$("#lastname").val();
+          uname=$("#username").val();
+          p=$("#password1").val();
+          e=$("#mail").val();
+          ph=$("#number").val();
+       
+
+          $.post("http://localhost:3000/signup",{username: uname,password: p,email: e,fisrtname: fname,lastname: lname,phoneno: ph}, function(data)
+          {
+                alert("signup success");
+          });
+      }
+        
+			
+		});
+});
+
+</script>
+</head>
+<body background="webtechp.jpg">
+var slideIndex = 1;<script>
+
+showDivs(slideIndex);
+
+function nextimg(n) {
+ dispimg(slideIndex += n);
+}
+file:///C:/Users/teja/Desktop/webtechp/henge.jpg
+function dispimg(n) {
+  var i;
+  var x = document.getElementsByClassName("imgha");
+  if (n > x.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = x.length}
+  for (i = 0; i < x.length; i++) {
+     x[i].style.display = "none";
+  }
+  x[slideIndex-1].style.display = "block";
+}
+</script>
+
+<script>
+	function myFunction(elem) {
+	    elem.style.transition="all 2s";
+		document.getElementById("hidd").style.display="none";
+		document.getElementById("form").style.display="block";
+		elem.className='roundbuttoncancel';
+		document.getElementById('form').className = 'login';
+		document.getElementById("sign1").innerHTML ="signup";		
+	}
+</script>
+
+<script>
+	function op( ) {
+	document.getElementById("form").style.display="none";
+	}
+</script>
+
+
+
+
+	<script>
+
+
+			function namecheck()
+			{
+				var firstname=document.getElementById("firstname").value.toString();
+				var namepat=/^[A-Za-z][a-z]+/;
+				if(namepat.test(firstname)==false){
+					document.getElementById("firstname").style.backgroundImage = "url('wrong.png')";
+				}
+				else
+				{
+					document.getElementById("firstname").style.backgroundImage = "url('formback3.png')";
+				}
+			}
+			function lnamecheck()
+			{
+				var firstname=document.getElementById("lastname").value.toString();
+				var namepat=/^[A-Za-z][a-z]+/;
+				if(namepat.test(firstname)==false){
+					document.getElementById("lastname").style.backgroundImage = "url('wrong.png')";
+				}
+				else
+				{
+					document.getElementById("lastname").style.backgroundImage = "url('formback3.png')";
+				}
+			}
+			function unamecheck()
+			{
+				var uname=document.getElementById("username").value.toString();
+				var username=/^[A-Za-z][a-z0-9]+/;
+				if(username.test(uname)==false){
+					document.getElementById("username").style.backgroundImage = "url('wrong.png')";
+				}
+				else
+				{
+					document.getElementById("username").style.backgroundImage = "url('formback3.png')";
+				}
+			}
+			function pcheck()
+			{
+				var p1=document.getElementById("password1").value.toString();
+				var p2=document.getElementById("password2").value.toString();
+				if(p1!=p2)
+				{document.getElementById("password2").style.backgroundImage = "url('wrong.png')";
+				}
+				else
+				{
+					document.getElementById("password2").style.backgroundImage = "url('formback3.png')";
+				}
+			}
+			function ncheck() {
+				var phone=document.getElementById("number").value.toString();
+				var phonepat1=/^[1-9]{1}[0-9]{9}$/;
+				var phonepat2=/^\+[0-9][0-9][1-9]{1}[0-9]{9}$/;
+				if(phonepat1.test(phone)==false && phonepat2.test(phone)==false ){
+					document.getElementById("number").style.backgroundImage = "url('wrong.png')";
+				}
+				else{
+					document.getElementById("number").style.backgroundImage = "url('formback3.png')";
+				}
+		
+			}
+			function echeck(){
+				var email=document.getElementById("mail").value.toString();
+				var emailExp = /^[A-Za-z][A-Za-z0-9]+@[A-Za-z]+.[A-Za-z]+/;
+				if(emailExp.test(email)==false){
+					document.getElementById("mail").style.backgroundImage = "url('wrong.png')";
+				}
+				else{
+					document.getElementById("mail").style.backgroundImage = "url('formback3.png')";
+				}
+					
+				}
+			
+		</script>
+ <div class="backk">
+  <img class="imgha" src="treeh.jpg" style="width:100% ;display:block;">
+    <img class="imgha" src="henge.jpg" style="width:100%">
+  <img class="imgha" src="buld3.jpg" style="width:100%">
+ 
+
+  <span id="butt" style="position:absolute;top:45%;left:0" onclick="nextimg(-1)"><</span>
+  <span id="butt" style="position:absolute;top:45%;right:0" onclick="nextimg(1)">></span>
+</div>
+
+
+<div id="myNav" class="overlay">
+
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <div class="overlay-content">
+    <a href="#">About Us</a>
+    <a href="#">Contact</a>
+    <a href="#">Donate</a>
+  </div>
+</div>
+<div class="child0">
+    <span style="font-size:30px;cursor:pointer;color:white;font-family:Avenir Next Condensed" onclick="openNav()">
+        &#9776; Start
+    </span>
+</div>
+<script>
+function openNav() {
+    document.getElementById("myNav").style.height = "100%";
+}
+
+function closeNav() {
+    document.getElementById("myNav").style.height = "0%";
+}
+</script>
+<div class="round-button-circle" onclick="myFunction(this)" id="dd">
+<div id="form" style="display:none";>
+<form>
+<label class="lb" id="uuu">
+	Username
+	<br>
+</label>
+	<input type="text" name="uname" id="uu">
+	<br>
+	<br>
+	<br>
+<label class="lb" id="ppp">
+	password
+	<br>
+</label>
+	<input type="password" id="pp">
+	<br>
+<div class="button">
+				<input type="button" id="tesst" value="Submit" style="border-radius: 50%">
+</div>
+
+</form>
+</div>
+<p id="hidd" style="padding-top:20%;font-size:30px;font-family:Avenir Next Condensed;">Trails!</p>
+</div>
+<div class="child01">
+	<span  id="sign1" style="font-size:30px;cursor:pointer;color:white;font-family:Avenir Next Condensed;">
+    </span>    
+</div>
+
+<div class="signupp" id="si">
+<form id="signup">
+			<div class="inputarea">
+				<label>First Name </label>
+				<input type="text" name="firstname" id="firstname" placeholder="First Name" onchange="namecheck()" onkeyup="namecheck()">
+			</div>
+			<div class="inputarea">
+				<label>Last Name </label>
+				<input type="text" name="second name" id="lastname" placeholder="Last Name" onchange="lnamecheck()" onkeyup="lnamecheck()">
+			</div>
+			<div class="inputarea">
+				<label>User name </label>
+				<input type="text" name="username" id="username" placeholder="User id" onchange="unamecheck()" onkeyup="unamecheck()">
+			</div>
+			<div class="inputarea">
+				<label>e-mail </label>
+				<input type="text" name="mail" id="mail" placeholder="abc@xyz.com" onchange="echeck()" onkeyup="echeck()">
+			</div>
+			<div class="inputarea">
+				<label>password </label>
+				<input type="password" name="password" id="password1">
+			</div>
+			<div class="inputarea">
+				<label>confirm password</label><span id="p1"></span>
+				<input type="password" name="password2" id="password2" onchange="pcheck()" onkeyup="pcheck()">
+			</div>
+			<div class="inputarea">
+				<label>phone no </label><span id="p2"></span>
+				<input type="text" name="number" id="number" placeholder="eg: +910000000000" onchange="ncheck()" onkeyup="ncheck()">
+			</div>		
+			
+				<input type="button" id="xcc" value="Submit" style="border-radius: 50%;margin-top:130px">
+			
+			
+		</form>
+</div>
+<div class="child01">
+	<span  id="sign1" style="font-size:30px;cursor:pointer;color:white;font-family:Avenir Next Condensed;">
+    </span>    
+</div>
+
+</body>
+
+</html>
+

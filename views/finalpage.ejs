@@ -1,0 +1,630 @@
+<html>
+<head>
+<script src="jquery-1.8.3.js"></script>
+ <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">  </script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
+<style>
+
+/* 
+html5doctor.com Reset Stylesheet
+v1.6.1
+Last Updated: 2010-09-17
+Author: Richard Clark - http://richclarkdesign.com 
+Twitter: @rich_clark
+*/
+
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+body {background-image: url("blc.jpg");
+	z-index: 0;
+	position: relative;
+	background-repeat: no-repeat;
+    background-size: cover;
+    background-color:black;
+    line-height:1;
+}
+
+article,aside,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section { 
+    display:block;
+}
+
+nav ul {
+    list-style:none;
+}
+
+blockquote, q {
+    quotes:none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content:'';
+    content:none;
+}
+@font-face {
+    font-family: myFirst;
+    src: url("advent-pro/AdventPro-Light.ttf");
+}   
+a {
+    margin:0;
+    padding:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+/* change colours to suit your needs */
+ins {
+    background-color:#ff9;
+    color:#000;
+    text-decoration:none;
+}
+
+/* change colours to suit your needs */
+mark {
+    background-color:#ff9;
+    color:#000; 
+    font-style:italic;
+    font-weight:bold;
+}
+
+del {
+    text-decoration: line-through;
+}
+
+abbr[title], dfn[title] {
+    border-bottom:1px dotted;
+    cursor:help;
+}
+
+table {
+    border-collapse:collapse;
+    border-spacing:0;
+}
+
+/* change border colour to suit your needs */
+hr {
+    display:block;
+    height:1px;
+    border:0;   
+    border-top:1px solid #cccccc;
+    margin:1em 0;
+    padding:0;
+}
+
+input, select {
+    vertical-align:middle;
+}
+.div1 {
+	z-index:1;
+	opacity: 0.2;
+    width: 100%;
+    height: 100%;
+    background-color: brown;
+    position: relative;
+    filter:blur(20px);
+    margin-top:0px ;
+    -webkit-animation-name: example; /* Chrome, Safari, Opera */
+    -webkit-animation-duration: 90s; /* Chrome, Safari, Opera */
+    -webkit-animation-iteration-count: 3; /* Chrome, Safari, Opera */
+    -webkit-animation-direction: reverse; /* Chrome, Safari, Opera */
+    animation-name: example;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-direction: reverse;
+    animation-timing-function: linear;
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes example {
+    0%   {background-color:blue; left:0px; top:0px;}
+    25%  {background-color:dark green; left:0px; top:0px;}
+    50%  {background-color:yelloe; left:0px; top:0px;}
+    75%  {background-color:teal; left:0px; top:0px;}
+    100% {background-color:aqua; left:0px; top:0px;}
+}
+
+/* Standard syntax */
+@keyframes example {
+    0%   {background-color:blue; left:0px; top:0px;}
+    25%  {background-color:dark green; left:0px; top:0px;}
+    50%  {background-color:yellow; left:0px; top:0px;}
+    75%  {background-color:teal; left:0px; top:0px;}
+    100% {background-color:aqua; left:0px; top:0px;}
+}
+/* Chrome, Safari, Opera */
+.radar{
+    height:200px;
+    width:200px;
+    margin-top: 50px;
+    margin-left: 220px;
+    position: relative;
+    opacity:0.5;
+    border-radius: 100px;
+    border: solid;
+    border-color:white;
+    background-color: green;
+    border-width: 2px; 
+}
+.radarInner{
+    height:0px;
+    width:0px;
+    margin-left:100;
+    margin-top:100;
+    position: relative;
+    border-radius:0px;
+    border: solid;
+    border-color:white;
+    background-color: green;
+    border-width: 2px; 
+-webkit-animation-name: radar; /* Chrome, Safari, Opera */
+    -webkit-animation-duration: 3s; /* Chrome, Safari, Opera */
+    -webkit-animation-iteration-count: 3; /* Chrome, Safari, Opera */
+    -webkit-animation-direction: ; /* Chrome, Safari, Opera */
+    animation-name: radar;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-direction: ;
+    animation-timing-function: linear;
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes radar {
+    0%   {height:0px;width:0px;border-radius:0px;margin-left:100px;margin-top:100px;}
+    25%  {height:50px;width:50px;border-radius:50px;margin-left:75px;margin-top:75px;}
+    50%  {height:100px;width:100px;border-radius:100px;margin-left: 50px;margin-top:50px;}
+    75%  {height:150px;width:150px;border-radius:150px;margin-left: 25px;margin-top:25px;}
+    100% {height:200px;width:200px;border-radius:200px;margin-left: 0px;margin-top:0px;}
+}
+
+/* Standard syntax */
+@keyframes radar {
+    0%   {height:0px;width:0px;border-radius:0px;margin-left:100px;margin-top:100px;}
+    25%  {height:50px;width:50px;border-radius:50px;margin-left:75px;margin-top:75px;}
+    50%  {height:100px;width:100px;border-radius:100px;margin-left: 50px;margin-top:50px;}
+    75%  {height:150px;width:150px;border-radius:150px;margin-left: 25px;margin-top:25px;}
+    100% {height:200px;width:200px;border-radius:200px;margin-left: 0px;margin-top:0px;}
+}
+
+/* Chrome, Safari, Opera */
+.child{
+	z-index: 2;
+	padding:10px;
+	text-align:center;
+	color:white;
+	border-style: none;
+	border-width: 0.5px;
+	border-color:white;
+	border-radius:10px;
+	margin-top:15%;
+	margin-left:20px;
+	height:100px;
+	width:95%;
+    text-shadow: 20px 20px 20px 20px black; 
+	position: fixed;
+
+}
+.child-content{
+    position:relative;
+    font-size:180;
+    cursor:pointer;
+    font-family: myFirst;
+    text-align:center;
+    transition:1s;
+}
+.child-content{
+    text-shadow: 20px 20px 20px 20px lime; 
+}
+.child2{
+	z-index: 2;
+	padding:10px;
+	text-align:center;
+	color:white;
+    background-color: black;
+    opacity:0.5;
+	border-style: solid;
+	border-width: 1px;
+	border-color:transparent;
+	border-radius:10px;
+	/*margin-top:45%;*/
+	top: 75%;
+	margin-left:3%;
+	width:93%;
+	margin-right:3%;
+	position: fixed;
+    transition:0.3s;
+  	overflow-y: hidden;
+  	transition-timing-function: cubic-bezier(.17,.67,.83,.67);
+}
+.child2-content{	
+    font-size:40px;
+    font-family:myFirst;
+    text-align:center;
+    position: relative;
+
+}
+.overlay {
+    height: 0%;
+    width: 100%;
+    position: fixed;
+    z-index: 3;
+    top: 0;
+    left: 0;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0, 0.9);
+    overflow-y: hidden;
+    transition: 0.5s;
+}
+span:hover{
+    text-shadow:0 0 0.5em lime;
+}
+.overlay-content {
+    position: relative;
+    top: 25%;
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+    font-family: myFirst;
+}
+
+.overlay a {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 36px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.overlay a:hover, .overlay a:focus{
+    color: #f1f1f1;
+    font-size: 50px;
+}
+
+
+.overlay .closebtn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 40px;
+}
+.child0{
+	position:fixed;
+	z-index:2;
+	margin-top: 0px;
+	margin-left:90%;
+	align-content: right;
+}
+.bottombar{
+	color:white;
+	background-color: black;
+	opacity:0.8;
+	margin-top:-5%;
+    position: fixed;
+    padding-bottom: 8%;
+    height:4%;
+	padding:15px;
+	width:99%;
+	font-family:Avenir Next Condensed;
+}
+.form1{
+    z-index: 20;
+    margin-left:-50%;
+    margin-top: -35%;
+    position: fixed;
+    float: left;
+    border-style: solid;
+    height:50%;
+    width:50%;
+    border-width: 1px;
+    border-color:transparent;
+    border-radius:10px;
+    color:white;
+    background-color: black;
+    opacity: 0.8;
+    transition:0.5s;
+
+}
+.form2{
+    z-index: 20;
+    margin-left:-50%;
+    margin-top: -35%;
+    position: fixed;
+    border-style: solid;
+    height:50%;
+    width:50%;
+    border-width: 1px;
+    border-color:transparent;
+    border-radius:10px;
+    color:white;
+    background-color: black;
+    opacity: 0.8;
+
+    transition:0.5s;
+}
+.form3{
+    z-index: 20;
+    margin-left:-50%;
+    margin-top: -35%;
+    position: fixed;
+    border-style: solid;
+    height:50%;
+    width:50%;
+    border-width: 1px;
+    border-color:transparent;
+    border-radius:10px;
+    color:white;
+    background-color: black;
+    opacity: 0.8;
+
+    transition:0.5s;
+}
+.bigImage{
+    position: fixed;
+    margin-left: 20%;
+    margin-top: 20%;
+    display: none;
+    border:none;
+    height:50%;
+    width:70%;
+}
+
+@media screen and (max-height: 450px) {
+  .overlay {overflow-y: auto;}
+  .overlay a {font-size: 20px}
+  .overlay .closebtn {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
+  }
+  .child2{
+    overflow-x: auto;
+  }
+}
+</style>
+
+
+<body>
+    <h1 style="font-size:20px;color:white;"><%= user%><h1>
+<div id="myNav" class="overlay">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <div class="overlay-content">
+    <a href="aboutus.html">About Us</a>
+    <a href="#">Contact</a>
+    <a href="#">Donate</a>
+  </div>
+</div>
+<div class="child0">
+    <span style="font-size:30px;cursor:pointer;color:white;font-family:Avenir" onclick="openNav()">
+        &#9776; Start
+    </span>
+</div>
+<div id="bacha" class="child" onclick="revert()">
+    <div class="child-content" id="bacha2">
+    Trails...
+</div>
+</div>
+</div>
+<div id="children" class="child2">
+<div class="child2-content">
+        <span style="cursor:pointer;opacity:1;" onclick="openForm()">Leave Trail</span>&nbsp&nbsp&nbsp&nbsp|&nbsp&nbsp&nbsp&nbsp<span id="explore" style="cursor:pointer;opacity:1;"onclick="openForm2()">Explore</span>&nbsp&nbsp&nbsp&nbsp|&nbsp&nbsp&nbsp&nbsp<span style="cursor:pointer;opacity:1;" onclick="openForm3()">Befriend</span>&nbsp&nbsp
+</div>
+</div>
+<div class="div1" onclick="revert()">  
+      
+</div>
+<div class="bottombar">
+    All Copyrights Reserved
+</div>
+<div class="form1" id="form1">
+    <form>
+        <p style="margin-top:20px;margin-left:20px;font-size:50px;color:white;font-family:myFirst;">
+            What would u like to drop today?
+        </p>
+        <input id="upload-input" type="file" name="uploads[]" multiple="multiple" style="margin-top:20px;margin-left:20px;">
+        <input type="button" id="xcc" value="Submit" style="margin-top:20px;margin-left:20px;">
+    </form>
+</div>
+<div class="form2" id="form2">
+    <p style="margin-top:20px;margin-left:20px;font-size:50px;color:white;font-family:myFirst;";>Looking for crumbs around..</p><div class=radar><div class=radarInner></div></div>
+</div>
+<div class="form3" id="form3">
+    <form>
+        <p style="margin-top:20px;margin-left:20px;font-size:50px;color:white;font-family:myFirst;">
+            Add a friend.
+        </p>
+        <input id="fn" type="text" name="fname" style="margin-top:20px;margin-left:20px;">
+        <input type="button" id="hcc" value="Submit" style="margin-top:20px;margin-left:20px;">
+    </form>
+</div>
+<div style="z-index:100;">
+<table style="margin-top:-55%;display:none;" id="t1">
+     <tr>
+        <td style="width:25%;">
+        <img src="<%= img0%>" style="width:100%;height:228px;">
+        </td>
+        <td style="width:25%;">
+        <img src="<%= img1%>" style="width:100%;height:228px;">
+        </td>
+        <td style="width:25%;">
+        <img src="<%= img2%>" style="width:100%;height:228px;">
+        </td>
+        <td style="width:25%;">
+        <img src="<%= img3%>" style="width:100%;height:228px;">
+        </td>
+        <td style="width:25%;">
+        <img src="<%= img4%>" style="width:100%;height:228px;">
+        </td>
+    </tr>
+     <tr>
+        <td style="width:25%;">
+        <img src="<%= img5%>" style="width:100%;height:228px;">
+        </td>
+        <td style="width:25%;">
+        <img src="<%= img6%>" style="width:100%;height:228px;">
+        </td>
+        <td style="width:25%;">
+        <img src="<%= img7%>" style="width:100%;height:228px;">
+        </td>
+        <td style="width:25%;">
+        <img src="<%= img8%>" style="width:100%;height:228px;">
+        </td>
+        <td style="width:25%;">
+        <img src="<%= img9%>" style="width:100%;height:228px;">
+        </td>
+    </tr>
+    <tr>
+        <td style="width:25%;">
+        <img src="<%= img10%>" style="width:100%;height:228px;">
+        </td>
+        <td style="width:25%;">
+        <img src="<%= img11%>" style="width:100%;height:228px;">
+        </td>
+        <td style="width:25%;">
+        <img src="<%= img12%>" style="width:100%;height:228px;">
+        </td>
+        <td style="width:25%;">
+        <img src="<%= img13%>" style="width:100%;height:228px;">
+        </td>
+        <td style="width:25%;">
+        <img src="<%= img14%>" style="width:100%;height:228px;">
+        </td>
+    </tr>   
+</table>
+</div>
+<div class="bigImage">
+<img id="bigOne" style="width:100%;height:100%;">
+</div>
+<script>
+
+
+function openNav() {
+    document.getElementById("myNav").style.height = "100%";
+}
+
+function closeNav() {
+    document.getElementById("myNav").style.height = "0%";
+}
+    function openForm(){
+    document.getElementById("bacha").style.display="none";   
+   document.getElementById("children").style.display="none"; 
+     document.getElementById("form1").style.marginLeft="25%";
+	}
+    function openForm2(){
+    //document.getElementById("bacha").style.display="none";
+    document.getElementById("bacha").style.marginTop="-10px";   
+    document.getElementById("bacha2").style.fontSize="30px";   
+
+   document.getElementById("children").style.display="none"; 
+   	document.getElementById("form2").style.marginLeft="25%";   }
+    function openForm3(){
+   document.getElementById("bacha").style.display="none";   
+   document.getElementById("children").style.display="none"; 
+    document.getElementById("form3").style.marginLeft="25%";   }
+
+    function closeForm(){
+        document.getElementById("form1").style.marginLeft="-50%";
+        document.getElementById("form2").style.marginLeft="-50%";
+        document.getElementById("form2").style.display="inline";
+        document.getElementById("form3").style.marginLeft="-50%";
+         document.getElementById("bacha").style.display="inline";   
+   document.getElementById("children").style.display="inline"; 
+   document.getElementById("t1").style.display="none"; 
+        
+    }
+    function imageReady(){
+        alert("hey");
+    
+    }
+    function revert(){
+        closeForm();
+        document.getElementById("t1").style.display="none";
+        document.getElementById("bacha").style.marginTop="15%";   
+        document.getElementById("bacha2").style.fontSize="180px";  
+
+    }
+    </script>
+    <script>
+    //this function to access grid!!remove the bacha2 click function and use required back end ...
+
+   $(document).ready(function(){
+    $('#explore').click(function(){
+        //alert("hey");
+        $('#t1').fadeIn();
+        $('#form2').delay(1000).fadeOut();
+
+    });     
+
+$('#hcc').click(function(){
+        
+              var frname;        
+         frname=$("#fn").val();
+         console.log(frname);
+       
+
+          $.post("http://localhost:3000/friendadd",{friend: frname}, function(data)
+          {
+                alert("friend added! you can now access his pics!");
+          });
+      
+});
+
+$('#xcc').click(function(){
+    console.log("wpo");
+
+  var files = $('#upload-input').get(0).files;
+
+  if (files.length > 0){
+    // create a FormData object which will be sent as the data payload in the
+    // AJAX request
+    var formData = new FormData();
+
+    // loop through all the selected files and add them to the formData object
+    for (var i = 0; i < files.length; i++) {
+      var file = files[i];
+
+      // add the files to formData object for the data payload
+      formData.append('uploads[]', file, file.name);
+    }
+
+    $.ajax({
+      url: '/upload',
+      type: 'POST',
+      data: formData,
+      processData: false,
+      contentType: false,
+      success: function(data){
+          window.location = data;
+      }
+    
+    });
+
+  }
+});
+});
+</script>
+</body
+</html>
+
+
